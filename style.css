@@ -1,3 +1,7 @@
+/* =========================================================
+   RESET
+========================================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -9,6 +13,11 @@ html {
 }
 
 body {
+    width: 100%;
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
     font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -23,11 +32,26 @@ body {
     line-height: 1.4;
 
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+figure {
+    margin: 0;
 }
 
 a {
     color: inherit;
     text-decoration: none;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
 }
 
 ::selection {
@@ -36,9 +60,9 @@ a {
 }
 
 
-/* =========================
-   NAV
-========================= */
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
 .nav {
     position: fixed;
@@ -55,7 +79,7 @@ a {
     align-items: center;
     justify-content: space-between;
 
-    z-index: 100;
+    z-index: 1000;
 
     background: rgba(245, 245, 243, 0.78);
 
@@ -64,29 +88,35 @@ a {
 
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 
-    transition: background 0.3s ease;
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease;
 }
 
 .logo {
     font-size: 22px;
+
     font-weight: 700;
 
-    letter-spacing: -0.05em;
+    letter-spacing: -0.06em;
 
     transition: opacity 0.25s ease;
 }
 
 .logo:hover {
-    opacity: 0.5;
+    opacity: 0.45;
 }
 
 .nav nav {
     display: flex;
+    align-items: center;
+
     gap: 32px;
 }
 
 .nav nav a {
     font-size: 14px;
+
     color: #555;
 
     transition: color 0.25s ease;
@@ -97,14 +127,17 @@ a {
 }
 
 
-/* =========================
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero {
-    min-height: 100vh;
+    min-height: 100svh;
 
-    padding: 160px 5vw 60px;
+    padding:
+        160px
+        5vw
+        60px;
 
     display: flex;
     flex-direction: column;
@@ -118,20 +151,24 @@ a {
 .eyebrow {
     margin-bottom: 28px;
 
-    font-size: 13px;
+    font-size: 12px;
+
     font-weight: 500;
 
-    letter-spacing: 0.04em;
-
-    color: #666;
+    letter-spacing: 0.08em;
 
     text-transform: uppercase;
+
+    color: #666;
 }
 
 .hero h1 {
-    font-size: clamp(64px, 10vw, 150px);
+    max-width: 1200px;
 
-    line-height: 0.9;
+    font-size:
+        clamp(64px, 10vw, 150px);
+
+    line-height: 0.88;
 
     letter-spacing: -0.075em;
 
@@ -139,7 +176,7 @@ a {
 }
 
 .hero-description {
-    max-width: 480px;
+    max-width: 500px;
 
     margin-top: 50px;
 
@@ -165,7 +202,8 @@ a {
 
     font-size: 15px;
 
-    transition: gap 0.3s ease;
+    transition:
+        gap 0.3s ease;
 }
 
 .hero-link:hover {
@@ -191,12 +229,14 @@ a {
 }
 
 
-/* =========================
-   SECTIONS
-========================= */
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
 
 section:not(.hero) {
-    padding: 140px 5vw;
+    padding:
+        140px
+        5vw;
 }
 
 .section-heading {
@@ -220,7 +260,8 @@ section:not(.hero) {
 }
 
 .section-heading h2 {
-    font-size: clamp(42px, 6vw, 82px);
+    font-size:
+        clamp(42px, 6vw, 82px);
 
     line-height: 0.95;
 
@@ -230,12 +271,12 @@ section:not(.hero) {
 }
 
 
-/* =========================
+/* =========================================================
    ARVEA
-========================= */
+========================================================= */
 
 .project-arvea {
-    margin-bottom: 120px;
+    margin-bottom: 140px;
 }
 
 .arvea-canvas {
@@ -245,7 +286,7 @@ section:not(.hero) {
 
     width: 100%;
 
-    height: min(70vw, 900px);
+    height: min(68vw, 880px);
 
     min-height: 620px;
 
@@ -257,22 +298,19 @@ section:not(.hero) {
 .arvea-canvas figure {
     position: absolute;
 
-    margin: 0;
-
     overflow: hidden;
 
     background: #ddd;
 
     box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.10);
+        0 25px 70px rgba(0, 0, 0, 0.10);
 
     transition:
-        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        transform 0.8s
+        cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .arvea-canvas img {
-    display: block;
-
     width: 100%;
     height: 100%;
 
@@ -280,7 +318,7 @@ section:not(.hero) {
 }
 
 
-/* MAIN IMAGE */
+/* MAIN */
 
 .arvea-main {
     left: 7%;
@@ -340,15 +378,14 @@ section:not(.hero) {
     left: 3%;
     top: 4%;
 
-    z-index: 5;
+    z-index: 10;
 
     display: flex;
-
     align-items: center;
 
     gap: 18px;
 
-    font-size: 12px;
+    font-size: 11px;
 
     letter-spacing: 0.12em;
 
@@ -368,9 +405,9 @@ section:not(.hero) {
     right: 3%;
     bottom: 3%;
 
-    z-index: 6;
+    z-index: 20;
 
-    min-width: 230px;
+    min-width: 240px;
 
     padding: 18px 22px;
 
@@ -388,12 +425,10 @@ section:not(.hero) {
 
     font-weight: 500;
 
-    letter-spacing: -0.035em;
+    letter-spacing: -0.04em;
 }
 
 .arvea-caption p {
-    grid-column: 1;
-
     margin-top: 3px;
 
     font-size: 13px;
@@ -403,20 +438,16 @@ section:not(.hero) {
 
 .arrow {
     grid-column: 2;
-
     grid-row: 1 / 3;
 
     font-size: 22px;
 
-    transition: transform 0.3s ease;
+    transition:
+        transform 0.3s ease;
 }
 
 
 /* ARVEA HOVER */
-
-.arvea-canvas:hover .arrow {
-    transform: translate(5px, -5px);
-}
 
 .arvea-canvas:hover .arvea-main {
     transform: scale(1.012);
@@ -428,21 +459,22 @@ section:not(.hero) {
         rotate(1deg);
 }
 
+.arvea-canvas:hover .arrow {
+    transform:
+        translate(5px, -5px);
+}
 
-/* =========================
+
+/* =========================================================
    OTHER PROJECTS
-========================= */
+========================================================= */
 
-.project {
-    display: block;
+.project:not(.project-arvea) {
+    margin-bottom: 140px;
 }
 
 .simple-project {
     display: block;
-}
-
-.project:not(.project-arvea) {
-    margin-bottom: 120px;
 }
 
 .project-image {
@@ -458,7 +490,8 @@ section:not(.hero) {
     overflow: hidden;
 
     transition:
-        transform 0.5s ease;
+        transform 0.5s
+        cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .simple-project:hover .project-image {
@@ -466,7 +499,8 @@ section:not(.hero) {
 }
 
 .project-image span {
-    font-size: clamp(40px, 8vw, 110px);
+    font-size:
+        clamp(40px, 8vw, 110px);
 
     font-weight: 600;
 
@@ -488,9 +522,9 @@ section:not(.hero) {
 .project-info {
     display: flex;
 
-    justify-content: space-between;
-
     align-items: flex-start;
+
+    justify-content: space-between;
 
     padding-top: 20px;
 }
@@ -500,7 +534,7 @@ section:not(.hero) {
 
     font-weight: 500;
 
-    letter-spacing: -0.035em;
+    letter-spacing: -0.04em;
 }
 
 .project-info p {
@@ -524,9 +558,9 @@ section:not(.hero) {
 }
 
 
-/* =========================
+/* =========================================================
    CAPABILITIES
-========================= */
+========================================================= */
 
 .capabilities {
     background: #111;
@@ -552,7 +586,11 @@ section:not(.hero) {
 }
 
 .capability-list > div {
-    padding: 35px 30px 60px 0;
+    padding:
+        35px
+        30px
+        60px
+        0;
 
     border-bottom: 1px solid #333;
 }
@@ -572,7 +610,7 @@ section:not(.hero) {
 
     margin-bottom: 45px;
 
-    font-size: 12px;
+    font-size: 11px;
 
     color: #777;
 }
@@ -580,7 +618,8 @@ section:not(.hero) {
 .capability-list h3 {
     margin-bottom: 12px;
 
-    font-size: clamp(28px, 4vw, 48px);
+    font-size:
+        clamp(28px, 4vw, 48px);
 
     letter-spacing: -0.05em;
 
@@ -598,9 +637,9 @@ section:not(.hero) {
 }
 
 
-/* =========================
+/* =========================================================
    ABOUT
-========================= */
+========================================================= */
 
 .about-content {
     display: grid;
@@ -614,7 +653,8 @@ section:not(.hero) {
 }
 
 .about-large {
-    font-size: clamp(32px, 4vw, 58px);
+    font-size:
+        clamp(32px, 4vw, 58px);
 
     line-height: 1.05;
 
@@ -632,12 +672,12 @@ section:not(.hero) {
 }
 
 
-/* =========================
+/* =========================================================
    CONTACT
-========================= */
+========================================================= */
 
 .contact {
-    min-height: 80vh;
+    min-height: 80svh;
 
     display: flex;
 
@@ -649,7 +689,8 @@ section:not(.hero) {
 }
 
 .contact h2 {
-    font-size: clamp(60px, 10vw, 150px);
+    font-size:
+        clamp(60px, 10vw, 150px);
 
     line-height: 0.88;
 
@@ -684,16 +725,20 @@ section:not(.hero) {
 }
 
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 footer {
     display: flex;
 
+    align-items: center;
+
     justify-content: space-between;
 
-    padding: 25px 5vw;
+    padding:
+        25px
+        5vw;
 
     background: #111;
 
@@ -703,9 +748,9 @@ footer {
 }
 
 
-/* =========================
-   SCROLL ANIMATION
-========================= */
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
 
 .reveal {
     opacity: 0;
@@ -715,7 +760,8 @@ footer {
 
     transition:
         opacity 0.8s ease,
-        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        transform 0.8s
+        cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.visible {
@@ -726,183 +772,572 @@ footer {
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* =========================================================
+   TABLET
+========================================================= */
 
-@media (max-width: 700px) {
-
-    .nav {
-        height: 62px;
-
-        padding: 0 6vw;
-    }
-
-    .nav nav {
-        gap: 18px;
-    }
-
-    .nav nav a {
-        font-size: 13px;
-    }
-
+@media (max-width: 900px) {
 
     .hero {
-        min-height: 100svh;
-
         padding:
             130px
-            6vw
+            5vw
             40px;
     }
 
     .hero h1 {
         font-size:
-            clamp(58px, 17vw, 100px);
+            clamp(60px, 11vw, 105px);
+    }
+
+    section:not(.hero) {
+        padding:
+            110px
+            5vw;
+    }
+
+    .section-heading {
+        margin-bottom: 60px;
+    }
+
+    .arvea-canvas {
+        height: 65vw;
+
+        min-height: 500px;
+    }
+
+    .arvea-main {
+        left: 6%;
+        width: 75%;
+    }
+
+    .arvea-detail {
+        right: 4%;
+        width: 23%;
+    }
+
+    .about-content {
+        gap: 7vw;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+
+        overflow-x: hidden;
+    }
+
+
+    /* NAV */
+
+    .nav {
+        height: 60px;
+
+        padding:
+            0 6vw;
+
+        background:
+            rgba(245, 245, 243, 0.94);
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav nav {
+        gap: 16px;
+    }
+
+    .nav nav a {
+        font-size: 12px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 100svh;
+
+        padding:
+            110px
+            6vw
+            28px;
+    }
+
+    .eyebrow {
+        margin-bottom: 24px;
+
+        font-size: 9px;
+
+        line-height: 1.5;
+
+        letter-spacing: 0.09em;
+    }
+
+    .hero h1 {
+        max-width: 100%;
+
+        font-size:
+            clamp(54px, 16vw, 82px);
+
+        line-height: 0.88;
+
+        letter-spacing: -0.075em;
     }
 
     .hero-description {
-        margin-top: 35px;
+        max-width: 330px;
 
-        font-size: 16px;
+        margin-top: 30px;
+
+        font-size: 15px;
+
+        line-height: 1.55;
+    }
+
+    .hero-link {
+        margin-top: 28px;
+
+        font-size: 13px;
     }
 
     .hero-meta {
         flex-direction: column;
 
-        gap: 8px;
+        gap: 7px;
+
+        padding-top: 18px;
+
+        font-size: 10px;
     }
 
 
+    /* SECTIONS */
+
     section:not(.hero) {
         padding:
-            100px
+            80px
             6vw;
     }
 
     .section-heading {
         grid-template-columns:
-            45px 1fr;
+            38px 1fr;
 
-        margin-bottom: 55px;
+        margin-bottom: 42px;
+
+        padding-top: 14px;
+    }
+
+    .section-heading span {
+        font-size: 9px;
     }
 
     .section-heading h2 {
-        font-size: 46px;
+        font-size:
+            clamp(38px, 11vw, 52px);
+
+        line-height: 0.92;
     }
 
 
-    /* ARVEA MOBILE */
+    /* =====================================================
+       ARVEA MOBILE
+    ===================================================== */
+
+    .project-arvea {
+        margin-bottom: 80px;
+    }
 
     .arvea-canvas {
-        height: 135vw;
+        position: relative;
 
+        width: 100%;
+
+        height: auto;
         min-height: 0;
+
+        display: flex;
+
+        flex-direction: column;
+
+        overflow: visible;
+
+        background: transparent;
     }
 
-    .arvea-main {
-        left: 6%;
-        top: 7%;
 
-        width: 88%;
-        height: 48%;
+    /* LABEL */
+
+    .arvea-label {
+        position: relative;
+
+        left: auto;
+        top: auto;
+
+        order: 1;
+
+        margin-bottom: 17px;
+
+        font-size: 9px;
+
+        letter-spacing: 0.10em;
+    }
+
+
+    /* MAIN */
+
+    .arvea-main {
+        position: relative;
+
+        left: auto;
+        top: auto;
+
+        order: 2;
+
+        width: 100%;
+        height: auto;
+
+        aspect-ratio: 16 / 10;
+
+        box-shadow: none;
+    }
+
+
+    /* SECONDARY */
+
+    .arvea-secondary,
+    .arvea-detail {
+        position: relative;
+
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+
+        box-shadow: none;
     }
 
     .arvea-projects {
-        left: 4%;
-        bottom: 5%;
+        order: 3;
 
-        width: 56%;
-        height: 24%;
+        width: 72%;
+        height: auto;
+
+        aspect-ratio: 16 / 10;
+
+        margin-top: 14px;
+
+        align-self: flex-start;
     }
 
     .arvea-about {
-        right: 4%;
-        bottom: 10%;
+        order: 4;
 
-        width: 48%;
-        height: 21%;
+        width: 72%;
+        height: auto;
+
+        aspect-ratio: 16 / 10;
+
+        margin-top: -8px;
+
+        align-self: flex-end;
     }
+
+
+    /* DETAIL HIDDEN ON MOBILE */
 
     .arvea-detail {
-        right: 4%;
-        top: 3%;
-
-        width: 30%;
-        height: 24%;
+        display: none;
     }
 
-    .arvea-label {
-        left: 5%;
-        top: 3%;
-    }
+
+    /* CAPTION */
 
     .arvea-caption {
-        left: 6%;
+        position: relative;
+
+        left: auto;
         right: auto;
-        bottom: 4%;
+        bottom: auto;
 
-        width: 54%;
+        order: 5;
 
+        width: 100%;
         min-width: 0;
 
-        padding:
-            13px
-            15px;
+        margin-top: 22px;
+
+        padding: 0;
+
+        display: flex;
+
+        align-items: flex-end;
+
+        justify-content: space-between;
+
+        background: transparent;
     }
 
     .arvea-caption h3 {
-        font-size: 18px;
+        font-size: 20px;
+
+        letter-spacing: -0.04em;
     }
 
     .arvea-caption p {
+        margin-top: 4px;
+
         font-size: 11px;
     }
 
+    .arrow {
+        font-size: 20px;
+    }
+
+
+    /* Disable desktop hover effects */
+
+    .arvea-canvas:hover .arvea-main {
+        transform: none;
+    }
+
+    .arvea-canvas:hover .arvea-detail {
+        transform: none;
+    }
+
+
+    /* OTHER PROJECTS */
+
+    .project:not(.project-arvea) {
+        margin-bottom: 75px;
+    }
 
     .project-image {
         aspect-ratio: 4 / 3;
     }
 
-    .project-info h3 {
-        font-size: 19px;
+    .project-image span {
+        font-size:
+            clamp(40px, 13vw, 70px);
     }
 
+    .project-info {
+        padding-top: 14px;
+    }
+
+    .project-info h3 {
+        font-size: 18px;
+
+        line-height: 1.1;
+    }
+
+    .project-info p {
+        max-width: 250px;
+
+        margin-top: 5px;
+
+        font-size: 12px;
+
+        line-height: 1.4;
+    }
+
+    .project-arrow {
+        font-size: 20px;
+    }
+
+
+    /* CAPABILITIES */
 
     .capability-list {
-        grid-template-columns: 1fr;
+        display: block;
     }
 
-    .capability-list > div:nth-child(odd) {
-        border-right: none;
-
-        padding-right: 0;
-    }
-
+    .capability-list > div,
+    .capability-list > div:nth-child(odd),
     .capability-list > div:nth-child(even) {
-        padding-left: 0;
+        padding:
+            28px
+            0
+            40px;
+
+        border-right: none;
     }
 
+    .capability-list span {
+        margin-bottom: 27px;
+
+        font-size: 9px;
+    }
+
+    .capability-list h3 {
+        margin-bottom: 10px;
+
+        font-size:
+            clamp(30px, 9vw, 42px);
+    }
+
+    .capability-list p {
+        max-width: 320px;
+
+        font-size: 14px;
+
+        line-height: 1.55;
+    }
+
+
+    /* ABOUT */
 
     .about-content {
-        grid-template-columns: 1fr;
-
-        gap: 45px;
+        display: block;
     }
 
     .about-large {
-        font-size: 38px;
+        font-size:
+            clamp(31px, 9vw, 43px);
+
+        line-height: 1.02;
+
+        letter-spacing: -0.055em;
     }
 
+    .about-content > p:last-child {
+        max-width: 320px;
+
+        margin-top: 35px;
+
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+
+    /* CONTACT */
+
+    .contact {
+        min-height: 70svh;
+    }
 
     .contact h2 {
-        font-size: 65px;
+        font-size:
+            clamp(54px, 15vw, 78px);
+
+        line-height: 0.9;
+
+        letter-spacing: -0.07em;
     }
 
+    .contact-link {
+        margin-top: 38px;
+
+        font-size: 16px;
+
+        word-break: break-word;
+    }
+
+
+    /* FOOTER */
 
     footer {
         padding:
             20px
             6vw;
+
+        font-size: 10px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .nav {
+        padding:
+            0 5vw;
+    }
+
+    .nav nav {
+        gap: 11px;
+    }
+
+    .nav nav a {
+        font-size: 11px;
+    }
+
+    .hero {
+        padding:
+            105px
+            5vw
+            25px;
+    }
+
+    .hero h1 {
+        font-size: 53px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    section:not(.hero) {
+        padding:
+            70px
+            5vw;
+    }
+
+    .section-heading {
+        grid-template-columns:
+            32px 1fr;
+    }
+
+    .section-heading h2 {
+        font-size: 38px;
+    }
+
+    .arvea-projects,
+    .arvea-about {
+        width: 78%;
+    }
+
+    .contact h2 {
+        font-size: 53px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
     }
 }
